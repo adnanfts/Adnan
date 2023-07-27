@@ -1,0 +1,19 @@
+.para_color{
+    color: gray;
+    line-height: 6px;
+}
+.thank{
+    font-weight: 800;
+    color: rgb(31, 31, 83);
+}
+
+.thank_main{
+    background-color: white;
+    width: 80%; 
+    margin: auto;
+    border-radius: 14px;
+}
+.thank_img{
+    margin-left:15px;
+    margin-bottom:15px;
+}

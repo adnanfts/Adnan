@@ -1,0 +1,46 @@
+.service_box_1{
+    border: 1px solid rgb(83, 83, 155);
+    border-radius: 6px;
+    padding: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    text-align: start;
+    line-height: 1px;
+    margin-top: 8px;
+}
+.pick_main{
+    background-color: white;
+    width: 80%;
+    margin: auto;
+    border-radius: 14px;
+}
+.input_checkbox{
+    align-self:center;
+}
+.header_margin{
+    margin-left:1.3rem;
+    margin-top:8px;
+}
+
+.heading_color_p{
+    color:rgb(31, 31, 83);
+}
+.sub_heading_p{
+    color:gray;
+    padding-top:3px;
+}
+
+.price{
+    align-self:center;
+    color:rgb(83, 83, 155);
+    font-weight:500;
+}
+.goback_btn{
+    font-weight:500;
+    color:gray;
+}
+
+.pick_img{
+    margin-left: 15px;
+    margin-bottom: 15px;
+}

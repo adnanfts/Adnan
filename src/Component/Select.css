@@ -1,0 +1,65 @@
+.heading_color{
+    font-weight: 700;
+}
+.box{
+    /* border: 1px solid  rgb(83, 83, 155); */
+    border: 1px solid #e1dcdc;
+    width: 9rem;
+    border-radius: 6px;
+    margin-right: 1rem;
+}
+.box3{
+    /* border: 1px solid  rgb(83, 83, 155); */
+    border: 1px solid #e1dcdc;
+    width: 9rem;
+    border-radius: 6px;
+}
+
+.icon_set{
+    display: flex;
+    margin-left: 1rem;
+    
+}
+.box_inner_text{
+    text-align: start;
+    margin-left: 1rem;
+    line-height: 12px;
+
+}
+
+.box_price{
+    font-weight: 700;
+}
+.child{
+    display: flex;
+    justify-content: center;
+    background-color: whitesmoke;
+    padding: 12px;
+    border-radius: 8px;
+}
+.child_text_align{
+    margin-right:3rem;
+    color: rgb(31, 31, 83);
+    font-weight: 700;
+}
+.btn_on_off{
+    margin-right:3rem;
+}
+.year_text{
+    font-weight: 600;
+    color: #b9b1b1;
+}
+.selectplan_main{
+    background-color: white;
+    width: 80%;
+    margin: auto;
+    border-radius: 14px;
+}
+.select_img{
+    margin-left:15px;
+    margin-bottom:15px;
+}
+.select_goback{
+    font-weight:500;
+    color:gray;
+}

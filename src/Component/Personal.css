@@ -1,0 +1,52 @@
+.text_show{
+
+    position: absolute;
+    bottom: 50%;
+    left: 15%;
+    color: white;
+    text-align: left;
+}
+.number_circle{
+    border: 1px solid white;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 28px;
+    text-align: center;
+    margin-right:14px;
+
+}
+
+.text-size{
+    line-height: 3px;
+    font-size: 14px;
+}
+.next_btn{
+    background-color: rgb(31, 31, 83);
+    color: white;
+}
+
+.next_btn:hover{
+    background-color: rgb(31, 31, 83);
+    color: white;
+}
+
+.heading_color{
+    color:rgb(31, 31, 83);
+
+}
+.personal_main{
+    background-color: white;
+    width: 80%; 
+    margin: auto;
+    border-radius: 14px;
+}
+.personal_img{
+    margin-left:15px;
+    margin-bottom:15px;
+}
+
+.pic_text{
+    color: white;
+    font-weight:500; 
+}
