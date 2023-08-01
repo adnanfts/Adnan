@@ -63,3 +63,19 @@
     font-weight:500;
     color:gray;
 }
+
+
+
+.box,
+.box3 {
+  /* Your existing styles for the boxes here */
+
+  /* Add these styles to apply a blue border when selected */
+  /* border: 2px solid transparent; */
+  cursor: pointer;
+}
+
+.box.selected,
+.box3.selected {
+  border-color: blue;
+}

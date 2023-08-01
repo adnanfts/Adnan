@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
+import React,{useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import PersonalInfo from "./Component/PersonalInfo";
 import SelectPlan from "./Component/SelectPlan";
@@ -9,8 +10,21 @@ import ThankYou from "./Component/ThankYou";
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import "./Component/Personal.css";
 import { Link } from "react-router-dom";
+import { createContext } from "react";
+
+// const data =createContext();
+// const data1 =createContext();
 
 function App() {
+  
+
+  
+  const [boxValue, setBoxValue] = useState({name: "",price: ""});
+
+  const handleBoxClick = (name,price) => {
+    setBoxValue({name, price});
+    console.log("selected plan:",name, price);
+  };
   return (
     <div className="App">
       <div className="background" style={{ backgroundColor: "#e5f3ef" }}>
@@ -73,7 +87,8 @@ function App() {
           
                 <Routes>
                   <Route exact path="/" element={<PersonalInfo />} />
-                  <Route exact path="/selectplan" element={<SelectPlan />} />
+                  <Route exact path="/selectplan" data={handleBoxClick}
+                  element={<SelectPlan />} />
                   <Route exact path="/pickadd" element={<PickAdd />} />
                   <Route exact path="/finishing" element={<Finishing />} />
                   <Route exact path="/thankyou" element={<ThankYou />} />
