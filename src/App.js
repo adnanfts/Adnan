@@ -12,8 +12,6 @@ import "./Component/Personal.css";
 import { Link } from "react-router-dom";
 import { createContext } from "react";
 
-// const data =createContext();
-// const data1 =createContext();
 
 function App() {
   
@@ -21,10 +19,6 @@ function App() {
   
   const [boxValue, setBoxValue] = useState({name: "",price: ""});
 
-  const handleBoxClick = (name,price) => {
-    setBoxValue({name, price});
-    console.log("selected plan:",name, price);
-  };
   return (
     <div className="App">
       <div className="background" style={{ backgroundColor: "#e5f3ef" }}>
@@ -44,7 +38,7 @@ function App() {
                   <div className="text_show">
                     <div className="d-flex mb-4">
                       <div>
-                        <Link to="/selectplan"><p className="number_circle">1</p></Link>
+                        <Link to="/personalplan"><p className="number_circle">1</p></Link>
                       </div>
                       <div className="text-size">
                         <p style={{ color: "lightgrey" }}>STEP 1</p>
@@ -53,31 +47,40 @@ function App() {
                     </div>
                     <div className="d-flex mb-4">
                       <div>
-                        <Link to="/pickadd"><p className="number_circle">2</p></Link>
+                        <Link to="/selectplan"><p className="number_circle">2</p></Link>
                       </div>
                       <div className="text-size">
-                        <p style={{ color: "lightgrey" }}>STEP 1</p>
-                        <p className="pic_text">SELECT PLANS</p>
+                        <p style={{ color: "lightgrey" }}>STEP 2</p>
+                        <p className="pic_text" >SELECT PLANS</p>
                       </div>
                     </div>
                     <div className="d-flex mb-4">
                       <div>
-                        <Link to="/finishing"><p className="number_circle">3</p></Link>
+                        <Link to="/pickadd"><p className="number_circle">3</p></Link>
                       </div>
                       <div className="text-size">
                         <p style={{ color: "lightgrey" }}>STEP 3</p>
                         <p className="pic_text">ADD-ONS</p>
                       </div>
                     </div>
-                    <div className="d-flex ">
+                    <div className="d-flex mb-4">
                       <div>
-                        <Link to="/thankyou"><p className="number_circle">4</p></Link>
+                        <Link to="/finishing"><p className="number_circle">4</p></Link>
                       </div>
                       <div className="text-size">
                         <p style={{ color: "lightgrey" }}>STEP 4</p>
-                        <p className="pic_text" >SUMMARY</p>
+                        <p className="pic_text">SUMMARY</p>
                       </div>
                     </div>
+                    {/* <div className="d-flex ">
+                      <div>
+                        <Link to="/thankyou"><p className="number_circle">5</p></Link>
+                      </div>
+                      <div className="text-size">
+                        <p style={{ color: "lightgrey" }}>STEP 5</p>
+                        <p className="pic_text" >SUMMARY</p>
+                      </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -86,9 +89,8 @@ function App() {
               
           
                 <Routes>
-                  <Route exact path="/" element={<PersonalInfo />} />
-                  <Route exact path="/selectplan" data={handleBoxClick}
-                  element={<SelectPlan />} />
+                  <Route exact path="/personalplan" element={<PersonalInfo />} />
+                  <Route exact path="/selectplan" element={<SelectPlan />} />
                   <Route exact path="/pickadd" element={<PickAdd />} />
                   <Route exact path="/finishing" element={<Finishing />} />
                   <Route exact path="/thankyou" element={<ThankYou />} />

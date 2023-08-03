@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState} from "react";
 import "./Personal.css";
 import { Formik, useFormik, Form, Field, ErrorMessage } from "formik";
 import formSchema from "./schemas/formSchema";
-import { Link, Router } from "react-router-dom";
+import { Link, Router,Navigate, useNavigate } from "react-router-dom";
 
 
 const intialValues = {
@@ -10,19 +10,16 @@ const intialValues = {
   email: "",
   contact: "",
 };
-const Validation = {
-  userName: "",
-  email: "",
-  contact: "",
-};
-const onSubmitForm = {
-  userName: "",
-  email: "",
-  contact: "",
-};
-
 
 const PersonalInfo = () => {
+ const navigate =useNavigate();
+  const handleSubmit = (values, { setSubmitting }) => {
+// alert("qqwerty")
+    console.log(values);
+    navigate("/selectplan")
+ 
+  };
+
   return (
     <>
       <div
@@ -39,18 +36,17 @@ const PersonalInfo = () => {
           </p>
         </div>
         <div style={{ textAlign: "start" }}>
-          <Formik
-          initialValues={intialValues}
-          validationSchema={formSchema}
-          onSubmit={onSubmitForm}
-          >
+        <Formik
+        initialValues={intialValues}
+        validationSchema={formSchema}
+        onSubmit={handleSubmit}
+      >
             {({
               values,
               handleChange,
-              handleSubmit,
               touched,
               errors,
-              ErrorMessage,
+              isSubmitting, 
             }) => (
               <Form>
                 <div className="form-group mb-2">
@@ -114,16 +110,16 @@ const PersonalInfo = () => {
              
                   <div
                   className="d-flex justify-content-end"
-                  style={{ marginTop: "6rem" }}
+                  style={{ marginTop: "5rem" }}
                 >
-                 <Link to="/selectplan">
+             
                  <button
                     className="btn btn-lg next_btn"
                     type="submit"
+ 
                   >
                     Next Step
                   </button>
-                 </Link>
                 </div>
               
               </Form>

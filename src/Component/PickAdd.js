@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 
 const PickAdd = () => {
   const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
+  const [boxValue, setBoxValue] = useState({name: "",price: ""});
+  const [billingOption, setBillingOption] = useState("monthly");
 
   const handleCheckboxChange1 = (name2, price2) => {
+    price2=billingOption=="monthly"? price2:"10";
     
     const isChecked = selectedCheckboxes.includes(name2);
     if (isChecked) {
@@ -16,7 +19,7 @@ const PickAdd = () => {
       setSelectedCheckboxes([...selectedCheckboxes, name2]);
     }
 
-    localStorage.clear();
+    // localStorage.clear();
     localStorage.setItem("flag4", true);
     localStorage.setItem("selectedCheckName2", name2);
     localStorage.setItem("selectedCheckPrice2", price2);
@@ -24,6 +27,7 @@ const PickAdd = () => {
   
 
   const handleCheckboxChange2 = (name3, price3) => {
+    price3=billingOption=="monthly"? price3:"20";
     const isChecked = selectedCheckboxes.includes(name3);
     if (isChecked) {
       setSelectedCheckboxes(
@@ -40,6 +44,8 @@ const PickAdd = () => {
   };
 
   const handleCheckboxChange3 = (name4, price4) => {
+    
+    price4=billingOption=="monthly"? price4:"20";
     const isChecked = selectedCheckboxes.includes(name4);
     if (isChecked) {
       setSelectedCheckboxes(
@@ -53,6 +59,28 @@ const PickAdd = () => {
     localStorage.setItem("selectedCheckName4", name4);
     localStorage.setItem("selectedCheckPrice4", price4);
   };
+
+  // const handleBillingOptionChange = () => {
+  //   const newBillingOption = billingOption === "monthly" ? "yearly" : "monthly";
+  //   setBillingOption(newBillingOption);
+   
+  //   localStorage.setItem("billingOption", newBillingOption); 
+  //   // console.log("SelectPlan",billingOption);
+  // };
+
+  useEffect(() => {
+    const savedBillingOption = localStorage.getItem("billingOption");
+    if (savedBillingOption) {
+      setBillingOption(savedBillingOption);
+    }
+    const selectedPlanName = localStorage.getItem("selectedPlanName");
+    const selectedPlanPrice = localStorage.getItem("selectedPlanPrice");
+    if (selectedPlanName && selectedPlanPrice) {
+      setBoxValue({ name: selectedPlanName, price: selectedPlanPrice });
+    }
+
+    
+  }, []);
 
   return (
     <>
@@ -72,7 +100,7 @@ const PickAdd = () => {
                 <input
                   type="checkbox"
                   checked={selectedCheckboxes.includes("Online service")}
-                  // onChange={handleCheckboxChange1}
+                
                   onChange={() => handleCheckboxChange1("Online service", "1")}
                 />
               </div>
@@ -84,7 +112,8 @@ const PickAdd = () => {
               </div>
             </div>
             <div className="price">
-              <p>+$1/mo</p>
+              {/* <p>+$1/mo</p> */}
+              <p>{billingOption === "monthly" ? `$1/mo` : `$10/yr`}</p>
             </div>
           </div>
           <div className="service_box_1 mt-3">
@@ -93,7 +122,7 @@ const PickAdd = () => {
                 <input
                   type="checkbox"
                   checked={selectedCheckboxes.includes("Larger storage")}
-                  // onChange={handleCheckboxChange2}
+                
                   onChange={() => handleCheckboxChange2("Larger storage", "2")}
                 />
               </div>
@@ -105,7 +134,8 @@ const PickAdd = () => {
               </div>
             </div>
             <div className="price">
-              <p>+$2/mo</p>
+              {/* <p>+$2/mo</p> */}
+              <p>{billingOption === "monthly" ? `$2/mo` : `$20/yr`}</p>
             </div>
           </div>
           <div className="service_box_1 mt-3">
@@ -117,7 +147,7 @@ const PickAdd = () => {
                   onChange={() =>
                     handleCheckboxChange3("Customizable Profile", "2")
                   }
-                  // ${boxValue.name === "Arcade" ? "selected" : ""}`}   onClick={() => handleBoxClick1("Arcade", "$9/mo")}
+                 
                 />
               </div>
               <div className="header_margin">
@@ -128,7 +158,8 @@ const PickAdd = () => {
               </div>
             </div>
             <div className="price">
-              <p>+$2/mo</p>
+              {/* <p>+$2/mo</p> */}
+              <p>{billingOption === "monthly" ? `$2/mo` : `$20/yr`}</p>
             </div>
           </div>
         </div>
